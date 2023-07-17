@@ -1,0 +1,22 @@
+body {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+    text-align: center;
+}
+table {
+    margin: 0 auto;
+    text-align: left;
+    width: 100%;
+}
+th, td {
+    padding: 10px;
+}
+th {
+    background-color: #007bff;
+    color: #fff;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+}

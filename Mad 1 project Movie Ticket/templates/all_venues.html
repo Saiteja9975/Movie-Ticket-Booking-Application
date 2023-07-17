@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+    <h1>List of Venues</h1>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>S.No</th>
+            <th>Venue_id</th>
+            <th>Venue Name</th>
+            <th>Place</th>
+            <th>Capacity</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for venue in venues %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{venue.v_id}}</td>
+            <td>{{venue.name}}</td>
+            <td>{{venue.place}}</td>
+            <td>{{venue.capacity}}</td>
+
+            <td>
+                <a type="button" href="/edit_venue/{{venue.v_id}}">Edit|</a>
+                <a type="button" href="/delete_venue/{{venue.v_id}}">Delete|</a>
+                <a type="button" href="/see_show/{{venue.v_id}}">Shows Available</a>
+            </td>
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+        <div>
+            <a href="/add_venue" class="btn btn-primary">Add a Venue</a>
+        </div>
+        <br>
+        <a href="/logout" class="btn btn-secondary">logout</a>
+</body>
+</html>

@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Add Show</title>
+</head>
+<body class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+    <h1 class="text-center mb-4"> Add a Show</h1>
+    <form method="post" action="/add_show/{{v1.v_id}}">
+        <div class="form-group">
+            <label for="name">Show Name:</label>
+            <input type="text" class="form-control" id="name" name="name"/>
+        </div>
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            <input type="text" class="form-control" id="rating" name="rating"/>
+        </div>
+        <div class="form-group">
+            <label for="timing">Timing:</label>
+            <input type="text" class="form-control" id="timing" name="timing"/>
+        </div>
+        <div class="form-group">
+            <label for="tags">Tags:</label>
+            <input type="text" class="form-control" id="tags" name="tags"/>
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" class="form-control" id="price" name="price"/>
+        </div>
+       <div>
+            <label for="vens">Select Venue:</label>
+            <select name="v_id" id="vens">
+                    <option value="{{v1.v_id}}">{{v1.name}}</option>
+            </select>
+        </div>
+        <br><br>
+        <div>
+            <input type="submit" class="btn btn-primary" value="ADD SHOW"/>
+    </form>
+    <br>
+    <br>
+    <a href="/logout" class="btn btn-secondary">logout</a></div>
+    
+    </div>
+    </div>
+</div>
+</body>
+</html>

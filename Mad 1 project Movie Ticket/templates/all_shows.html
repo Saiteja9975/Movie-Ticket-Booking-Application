@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Shows</title>
+</head>
+<body>
+    <h1>List of all shows</h1>
+    <table>
+        <tr>
+            <td>S.No</td>
+            <td>Show Name </td>
+            <td>Rating</td>
+            <td>Timing</td>
+            <td>Price</td>
+            <td>Actions</td>
+        </tr>
+        {% for show in shows %}
+        <tr>
+            <td>{{show.s_id}}</td>
+            <td>{{show.name}}</td>
+            <td>{{show.rating}}</td>
+            <td>{{show.timing}}</td>
+            <td>{{show.price}}</td>
+
+            <td>
+                <a type="button" href="#">Update</a>
+                <a type="button" href="#">delete</a>
+            </td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    <div>
+        <a href="/add_show">Add a Show</a>
+    </div>
+     <br>
+    <a href="/logout" class="btn btn-secondary">logout</a></div>
+  
+</body>
+</html>

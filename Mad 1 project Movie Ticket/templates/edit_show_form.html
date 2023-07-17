@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Edit Show</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class=" col-md-6">
+                <h1 class="text-center mb-4">Edit a show</h1>
+                <form method="post" action="/edit_show/{{s1.s_id}}">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Show Name:</label>
+                        <input type="text" id="name" class="form-control" name="u_name" value="{{s1.name}}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating:</label>
+                        <input type="text" id="rating" name="u_rating" class="form-control" value="{{s1.rating}}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="timing">Timing:</label>
+                        <input type="text" id="timing" name="u_timing" class="form-control" value="{{s1.timing}}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="tags">Tags:</label>
+                        <input type="text" id="tags" name="u_tags" class="form-control" value="{{s1.tags}}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price:</label>
+                        <input type="number" id="price" name="u_price" class="form-control"    value="{{s1.price}}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="vens">Select Venue:</label>
+                        <select name="u_v_id" id="vens">
+                            {%for one in venues %}
+                                <option value="{{one.v_id}}">{{one.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <input type="submit" class="btn btn-primary" value="EDIT SHOW"/>
+                    </div>
+                </form>
+                <br>
+                <br>
+                <a href="/logout" class="btn btn-secondary">logout</a></div>
+            
+</body>
+</html>

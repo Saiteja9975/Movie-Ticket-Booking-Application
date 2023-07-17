@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Booking Tickets</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col md-6">
+            <h2> Booking Tickets for Show {{s1.name}} of Venue {{v2.name}}</h2>
+            <br><br>
+            <h4> Available Seats : {{num_available_seats}}</h4>
+            <h4> Price:{{s1.price}}</h4>
+            {% if num_available_seats == 0 %}
+                <p>Sorry, no seats available</p>
+            {%else%}
+            <form method="post" class="form-group" action="/book_tickets/{{s1.s_id}}">
+                <h4><label for="num_seats">Number of seats:</label></h4>
+                <input type="number" id="num_seats" class="form-control"name="num_seats" min="1" max="{{num_available_seats}}">
+                <br>
+                <input type="submit"  class="btn btn-primary" value="BOOK"> 
+            </form>
+    {%endif%}
+</body>
+</html>

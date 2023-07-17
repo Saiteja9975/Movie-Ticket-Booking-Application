@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
+</head>
+<body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+    <h1>My Bookings</h1>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>S.No</th>
+            <th>Booking_id</th>
+            <th>Venue Name</th>
+            <th>Show Name</th>
+            <th>Timing</th>
+            <th>Number of seats</th>
+            <th>Total Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in final_res %}
+        <tr>
+            <td>{{loop.index}}</td> 
+            <td>{{item[2].id}}</td>
+            <td>{{item[1].name}}</td>
+            <td>{{item[0].name}}</td> 
+            <td>{{item[0].timing}}</td>
+            <td>{{item[2].num_seats}}</td>
+            <td>{{item[2].total_price}}</td>  
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+        <div>
+</body>
+</html>

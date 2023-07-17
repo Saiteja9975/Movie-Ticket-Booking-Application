@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style2.css') }}">
+    <title>Shows Available </title>
+</head>
+<body>
+    <div class="container">
+         <h1>Shows Available for {{v1.name}}</h1>
+        <form action="/search1/{{v1.v_id}}" class="form-group" method="post">
+            <label for="search1">Search:</label>
+            <input type="text" class="form-control" name="name" id="search1">
+            <br>
+            <input  class="btn btn-primary" type="submit" value="Search">
+        </form>
+        {% if shows | length == 0%}
+        <h3>No shows Available</h3>
+        {% else%}
+            {% for show in shows%}
+            <div class="show-card">
+                <p><strong>Show Name:</strong>{{show.name}}</p>
+                <p><strong>Show Timing:</strong> {{show.timing}}</p>
+                <p><strong>Show Rating:</strong> {{show.rating}}</p>
+                <p><strong>Show Tags:</strong> {{show.tags}}</p>
+                <p><strong>Show Price:</strong> {{show.price}}</p>
+                <h4><a href="/book_tickets/{{show.s_id}}" class="btn btn-primary">Book Tickets</a></h4>
+            </div>
+            {% endfor %}
+        {% endif%}
+        <br>
+        <a href="/logout" class="btn btn-secondary">logout</a>
+    </div>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Booking Confirmed</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style2.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col col-md-6">
+                <div class="show-card">
+    <h1> Congratulations,Your Booking Confirmed</h1>
+    <h3>Booking Details</h3>
+    <p><strong>Venue Name:</strong>{{v2.name}}</p>  
+    <p><strong>Show Name:</strong>{{s1.name}}</p>
+    <p><strong>Show Timing:</strong>{{s1.timing}}</p>
+    <p><strong>Number Of Seats:</strong>{{num_seats}}</p>
+    <p><strong>Total Price:</strong>{{total_price}}</p>
+</body>
+<br>
+<a href="/logout" class="btn btn-secondary">Logout</a>
+<a href="/user_dashboard" class="btn btn-secondary">Go to Dashboard</a>
+</html>
+

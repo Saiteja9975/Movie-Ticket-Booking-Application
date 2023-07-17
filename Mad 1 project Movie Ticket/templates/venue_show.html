@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style1.css') }}">
+    <title>Shows of Venue</title>
+</head>
+<body>
+    {% if shows|length == 0 %}
+    <h1> No shows are there for {{v1.name}}</h1>
+    {% else %}
+    <h1>Shows registered for {{v1.name}}</h1>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <td>S.No</td>
+            <td>Show ID</td>
+            <td>Show Name</td>
+            <td>Rating</td>
+            <td>Timing</td>
+            <td>Tags</td>
+            <td>Price</td>
+            <td>Actions</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for show in shows %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{show.s_id}}</td>
+            <td>{{show.name}}</td>
+            <td>{{show.rating}}</td>
+            <td>{{show.timing}}</td>
+            <td>{{show.tags}}</td>
+            <td>{{show.price}}</td>
+
+            <td>
+                <a type="button" href="/edit_show/{{show.s_id}}">Update|</a>
+                <a type="button" href="/delete_show/{{show.s_id}}">delete</a>
+            </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {%endif%}
+    <br><br>
+    <a href="/add_show/{{v1.v_id}}" class="btn btn-primary">Add a Show</a>
+    <br><br>
+    <a href="/all_venue" class="btn btn-primary">Go back to venues</a>
+    <br><br>
+    <a href="/logout" class="btn btn-secondary">logout</a>
+</body>
+</html>
